@@ -4,12 +4,14 @@ const path=require('path');
 const PORT=process.env.PORT || 3000;
 const mongoose=require('mongoose');
 const bodyParser=require('body-parser');
-const authRoutes=require('./routes/auth')
+const authRoutes=require('./routes/auth');
+const pagesRoutes=require('./routes/pages');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static('./Frontend'));
 app.set('view engine','ejs');
-app.set('views','./Frontend/html');
+app.set('views','Frontend');
 app.use(authRoutes);
+app.use(pagesRoutes);
 mongoose.connect('mongodb+srv://root:root@atlascluster.2a2wt0x.mongodb.net/Project1').then((result) => {
     console.log('Connection established successsfully')
     app.listen(PORT,()=>{
