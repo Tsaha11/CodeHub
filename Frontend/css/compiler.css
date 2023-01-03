@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Cutive&family=Poppins:ital,wght@0,800;1,100;1,900&display=swap');
+.content-box{
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    transition: 0.5s;
+}
+.lang-box{
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    justify-content: space-between;
+    transition: 0.5s;
+}
+.lang-box .language{
+    height: 12%;
+}
+.lang-box div{
+    width: 100%;
+}
+.lang-box div{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.compiler-box{
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid black; */
+    width: 80%;
+    min-height: 500px;
+    margin-left: 7px;
+    border-radius: 5px;
+}
+.compiler-files{
+    display: flex;
+}
+.compiler-header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 3px;
+}
+.compiler-btn{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+.compiler-btn button{
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    height: 30px;
+}
+.compiler-box button:hover{
+    cursor: pointer;
+    background-color: rgb(80, 210, 80);
+}
+.compiler-files .file{
+    width: 10rem;
+    border: 3px solid black;
+}
+.language button{
+    width: 100%;
+    border-radius: 5px;
+    height: 100%;
+}
+.language button:hover{
+    cursor: pointer;
+    background-color: rgb(72, 104, 183);
+}
+.file:hover{
+    cursor: pointer;
+}
+.file i{
+    float: right;
+    margin: 2px;
+    font-size: 1.1rem;
+}
+.compiler-text{
+    width: 100%;
+    min-height: 100%;
+    margin: 1px;
+    border: 2px solid black;
+    /* box-sizing: border-box; */
+}
+.lang-check{
+    background-color: rgb(186, 170, 170);
+}
+.result{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-around;
+}
+.input-box,.output-box{
+    display: flex;
+    margin: 5px;
+}
+.result button{
+    width: 50px;
+    height: 25px;
+}
+.result button:hover{
+    cursor: pointer;
+    background-color: rgb(75, 209, 75);
+}
+#input-copy{
+    margin-bottom: auto;
+}
+.downloadBtn{
+    height: 40px;
+}
+.downloadBtn:hover{
+    cursor: pointer;
+    background-color: rgb(129, 194, 129);
+}

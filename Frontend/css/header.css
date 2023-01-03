@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Cutive&family=Poppins:ital,wght@0,800;1,100;1,900&display=swap');
+.navbar{
+    margin: 0px;
+    font-family: 'Poppins',sans-serif;
+}
+.content:hover{
+    color: gray;
+}
+.content{
+    width: 100%;
+    position: sticky;
+    margin-left: 0px;
+    background-color: rgb(22, 21, 21);
+    display: grid;
+    grid-template-columns: 5% 20% 65% 10%;
+}
+.content label{
+    color: white;
+}
+.logo a{
+    color: white;
+    text-decoration: none;
+}
+.menu-list{
+    display: flex;
+    padding-left: 40%;
+    list-style: none;
+}
+.menu-list a{
+    float: right;
+    margin: 10px;
+    font-size: 1.6rem;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    list-style: none;
+}
+.menu-list a:hover{
+    color: rgb(124, 118, 118);
+}
+.logo,.list,.icon,.signup-login{
+    text-align: center;
+    margin-top: auto;
+    font-size: 1.6rem;
+    margin-bottom: auto;
+}
+.signup-login button{
+    height: 60%;
+    width: 68%;
+    font-size: 1.4rem;
+    color: white;
+    background-color: black;
+    border: 3px solid white;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-right: 5%;
+    padding-left: 5%;
+    border-radius: 4px;
+}
+.signup-login button:hover{
+    cursor: pointer;
+}

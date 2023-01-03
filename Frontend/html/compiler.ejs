@@ -1,0 +1,46 @@
+<%-include('./partial/header.ejs')%>
+    <hr>
+    <hr>
+    <div class="content-box">
+      <div class="lang-box">
+        <div class="language"><button id="Python">Python</button></div>
+        <div class="language"><button id="C">C</button></div>
+        <div class="language"><button id="C++">C++</button></div>
+        <div class="language"><button id="JAVA">Java</button></i></div>
+        <div class="language"><button id="PHP">PHP</button></div>
+        <div id="download"><button class="downloadBtn"><i class="fa fa-download"></i> Download</button></div>
+      </div>
+      <div class="compiler-box">
+        <div class="compiler-header">
+          <div class="compiler-files">
+            <div class="file">C</div>
+          </div>
+          <div class="compiler-btn">
+            <button id="resetBtn">Reset</button>
+            <button id="copyBtn">Copy</button>
+            <button id="runBtn">Run</button>
+          </div>
+        </div>
+        <div id="test">
+          <textarea id='lineCounter' wrap='off' readonly>1.</textarea>
+          <textarea id='codeEditor' wrap='off'>
+          </textarea>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="result">
+      <div class="input-box">
+        <div><textarea name="field-input" id="field-input" cols="40" rows="10" placeholder="Input Goes here"></textarea></div>
+        <div><button id="input-copy">Copy</button></div>
+      </div>
+      <div class="output-box">
+        <div><textarea name="field-output" id="field-output" cols="40" rows="10" placeholder="Output Goes here"></textarea></div>
+        <div><button id="output-copy">Copy</button></div>
+      </div>
+
+  </body>
+  <script src="/js/compiler.js"></script>
+  <script src="/js/line-counter.js"></script>
+  <script src="/js/download.js"></script>
+</html>
