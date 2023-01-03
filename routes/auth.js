@@ -4,4 +4,5 @@ const router=express.Router();
 router.get('/',(req,res)=>{
     res.render('Compiler',{title:'Compiler'})
 })
+router.get('/compiler')
 module.exports=router;
