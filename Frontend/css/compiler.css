@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: row;
     transition: 0.5s;
+    transition: all 1500ms;
 }
 .lang-box{
     display: flex;
@@ -13,16 +14,19 @@
     height: 250px;
     justify-content: space-between;
     transition: 0.5s;
+    transition: all 150ms;
 }
 .lang-box .language{
     height: 12%;
 }
 .lang-box div{
     width: 100%;
+    transition: all 150ms;
 }
 .lang-box div{
     margin-top: auto;
     margin-bottom: auto;
+    transition: all 150ms;
 }
 .compiler-box{
     display: flex;
@@ -31,6 +35,7 @@
     width: 80%;
     min-height: 500px;
     margin-left: 7px;
+    transition: all 150ms;
     border-radius: 5px;
 }
 .compiler-files{
@@ -39,6 +44,7 @@
 .compiler-header{
     display: flex;
     flex-direction: row;
+    transition: all 150ms;
     width: 100%;
     justify-content: space-between;
     padding: 3px;
@@ -56,7 +62,7 @@
 }
 .compiler-box button:hover{
     cursor: pointer;
-    background-color: rgb(80, 210, 80);
+    background-color: rgb(145, 145, 146);
 }
 .compiler-files .file{
     width: 10rem;
@@ -70,6 +76,11 @@
 .language button:hover{
     cursor: pointer;
     background-color: rgb(72, 104, 183);
+}
+.file{
+    background-color: rgb(188, 178, 178);
+    border: none;
+    box-shadow: rgba(40, 37, 37, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .file:hover{
     cursor: pointer;
@@ -99,6 +110,9 @@
     display: flex;
     margin: 5px;
 }
+.input-box textarea,.output-box textarea{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
 .result button{
     width: 50px;
     height: 25px;
@@ -116,4 +130,136 @@
 .downloadBtn:hover{
     cursor: pointer;
     background-color: rgb(129, 194, 129);
+}
+.button-29 {
+    align-items: center;
+    appearance: none;
+    background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+    color: black;
+  }
+  
+
+  .button-29:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  
+  .button-29:active {
+    box-shadow: #3c4fe0 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+
+.downloadBtn {
+  align-items: center;
+  background-color: initial;
+  background-image: linear-gradient(#464d55, #25292e);
+  border-radius: 8px;
+  border-width: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  font-family: expo-brand-demi,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 18px;
+  height: 52px;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 32px;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all 150ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.downloadBtn:hover {
+  box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
+  opacity: .85;
+}
+
+.downloadBtn:active {
+  outline: 0;
+}
+
+.downloadBtn:focus {
+  box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
+}
+
+.button-25 {
+  background-color: #36A9AE;
+  background-image: linear-gradient(#37ADB2, #329CA0);
+  border: 1px solid #56c8ce;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: block;
+  font-family: -apple-system,".SFNSDisplay-Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 15px;
+  line-height: 100%;
+  margin: 0;
+  outline: 0;
+  text-align: center;
+  transition: box-shadow .05s ease-in-out,opacity .05s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.button-25:hover {
+  box-shadow: rgba(18, 11, 11, 0.3) 0 0 2px inset, rgba(0, 0, 0, 0.4) 0 1px 2px;
+  text-decoration: none;
+  transition-duration: .15s, .15s;
+}
+
+.button-25:active {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset, rgba(0, 0, 0, 0.4) 0 1px 1px;
+}
+
+.button-25:disabled {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+.button-25:disabled:active {
+  pointer-events: none;
+}
+
+.button-25:disabled:hover {
+  box-shadow: none;
 }

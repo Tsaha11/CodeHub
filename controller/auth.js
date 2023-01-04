@@ -1,8 +1,56 @@
+//controller
 const express=require('express');
+const { use } = require('../routes/auth');
+const User=require('../Schema/login-signup');
+const bcrypt=require('bcrypt');
+const {validationResult}=require('express-validator/check');
 const getLogin=(req,res,next)=>{
     res.render('login-signup/ejs/login',{title:'Login'})
 }
 const getSignup=(req,res,next)=>{
-    res.render('login-signup/ejs/signup',{title:'Sign-Up'})
+    res.render('login-signup/ejs/signup',{title:'Sign-Up',error:req.flash('error')})
 }
-module.exports={getLogin,getSignup}
+const postSignup=async(req,res,next)=>{
+    const errors=validationResult(req);
+    if(errors.isEmpty()==false){
+        req.flash('error','password should be more than 5 character and email and username should be valid');
+        return res.render('login-signup/ejs/signup',{title:'Sign-Up',error:req.flash('error')})
+    }
+    try{
+        const {username,email,password,confirmpassword}=req.body;
+        const userUnique=await User.find({username:username});
+        const emailUnique=await User.find({email:email});
+        if(password!=confirmpassword){
+            req.flash('error','Password and confirm password not matched');;
+            res.render('login-signup/ejs/signup',{title:'Sign-Up',error:req.flash('error')});
+        }
+        if(userUnique.length==0 && emailUnique.length==0){
+            const hashpw=await bcrypt.hash(password,10);
+            // email verification
+            const user=new User({
+                username:username,
+                email:email,
+                password:hashpw
+            }).save().then((result)=>{
+                console.log('data created');
+                res.redirect('/login');
+            }).catch(er=>{
+                console.log(er);
+                console.log('error occured');
+            })
+        }
+        else{
+            req.flash('error','username or email already exist');
+            res.render('login-signup/ejs/signup',{title:'Sign-Up',error:req.flash('error')});
+        }
+    }
+    catch(er){
+        console.log(er);
+        res.send('Something went wrong');
+        // error handling
+    }
+}
+const postLogin=(req,res,next)=>{
+
+}
+module.exports={getLogin,getSignup,postLogin,postSignup}

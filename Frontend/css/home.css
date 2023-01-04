@@ -12,6 +12,7 @@
     padding: 19px;
     flex-direction: column;
     justify-content: space-between;
+    transition: all 150ms;
 }
 .quote-text{
     font-size: 1.2rem;
@@ -74,6 +75,7 @@
     width: 80%;
     height: 272px;
     margin: auto;
+    transition: all 150ms;
     box-sizing: border-box;
     justify-content: center;
 }
