@@ -5,7 +5,7 @@ const User=require('../Schema/login-signup');
 const bcrypt=require('bcrypt');
 const {validationResult}=require('express-validator/check');
 const getLogin=(req,res,next)=>{
-    res.render('login-signup/ejs/login',{title:'Login'})
+    res.render('login-signup/ejs/login',{title:'Login',error:req.flash('error')})
 }
 const getSignup=(req,res,next)=>{
     res.render('login-signup/ejs/signup',{title:'Sign-Up',error:req.flash('error')})
@@ -50,7 +50,31 @@ const postSignup=async(req,res,next)=>{
         // error handling
     }
 }
-const postLogin=(req,res,next)=>{
-
+const postLogin=async(req,res,next)=>{
+    const {email,password}=req.body;
+    const errors=validationResult(req);
+    if(errors.isEmpty()==false){
+        req.flash('error','Email not valid');
+        return res.render('login-signup/ejs/login',{title:'Login-Up',error:req.flash('error')})
+    }
+    try{
+        const user=await User.find({email:email});
+        if(user.length==0){
+            // if email not found
+            console.log('e');
+            req.flash('error','Email does not exist');
+            return res.render('login-signup/ejs/login',{title:'Login-Up',error:req.flash('error')})
+        }
+        const passCheck=await bcrypt.compare(password,user[0].password);
+        if(passCheck==true){
+            res.redirect('/');
+        }
+        else{
+            res.redirect('/login');
+        }
+    }
+    catch(er){
+        console.log(er);
+    }
 }
 module.exports={getLogin,getSignup,postLogin,postSignup}
