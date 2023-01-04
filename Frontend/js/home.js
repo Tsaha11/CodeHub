@@ -14,3 +14,7 @@ volume.addEventListener('click',(er)=>{
     let utterance=new SpeechSynthesisUtterance(`${quoteText.innerHTML}`);
     speechSynthesis.speak(utterance)
 })
+const btn=document.getElementById('new-qoute');
+btn.addEventListener('click',(er)=>{
+    window.location.reload();
+})

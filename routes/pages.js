@@ -1,9 +1,11 @@
 const express=require('express');
 const router=express.Router();
 const controller=require('../controller/pages');
+const compilerController=require('../controller/compiler');
 router.get('/',controller.getCompiler);
 router.get('/home',controller.getHome);
 router.get('/compiler',controller.getCompiler);
 router.get('/share',controller.getShare);
 router.get('/practice',controller.getPractice);
+router.post('/compiler',compilerController.getCodeText);
 module.exports=router;

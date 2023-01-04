@@ -1,55 +1,67 @@
 <%-include('./partial/header.ejs')%>
-<hr><hr>
-<div class="quote-wrapper">
-    <div class="quote-heading">Quote of the Day</div>
-    <div class="quote-body">
-        <i class="fa-solid fa-quote-left"></i>
-        <span>Lorem ipsum dolor sit amet consectetur adipisicing.Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate iste odit consectetur enim praesentium!</span>
-        <i class="fa-solid fa-quote-right"></i>
+    <hr>
+    <hr>
+    <div class="quote-wrapper">
+        <%if(qoutes.length>0){%>
+            <%var randNum=Math.floor(Math.random()*16)%>
+                <div class="quote-heading">Quote of the Day</div>
+                <div class="quote-body">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <span class="quote-text"><%=qoutes[randNum].qouteBody%></span>
+                    <i class="fa-solid fa-quote-right"></i>
+                    <br>
+                    <span class="quote-writer">-<%=qoutes[randNum].qouteWriter%></span>
+                </div>
+                <div class="quote-button">
+                    <div class="quote-operation">
+                        <i class="fas fa-volume-up volume"></i>
+                        <i class="fas fa-clipboard clipboard"></i>
+                    </div>
+                    <div class="quote-change">
+                        <button id="new-qoute">New Quote</button>
+                    </div>
+                </div>
+                <%}else{%>
+                    <h1>Error in fetching</h1>
+                    <p>This error may be occured due to network issue</p>
+                    <%}%>
     </div>
-    <div class="quote-button">
-        <div class="quote-operation">
-            <i class="fas fa-volume-up volume" ></i>
-            <i class="fas fa-clipboard clipboard"></i>
+    <h1 class="services-header">Our Services</h1>
+    <div class="wrapper">
+        <div class="box" id="compiler">
+            <div class="front-face">
+                <div class="icon"><i class="fa-solid fa-code"></i></div>
+                <span>Compiler</span>
+            </div>
+            <div class="back-side">
+                <span>Compile</span>
+                <p>You can compile your here wihtout login as well, and along with that we also offer you to download
+                    and share you codes to other</p>
+            </div>
         </div>
-        <div class="quote-change">
-            <button>New Quote</button>
+        <div class="box" id="share">
+            <div class="front-face">
+                <div class="icon"><i class="fa-sharp fa-solid fa-share"></i></div>
+                <span>Share</span>
+            </div>
+            <div class="back-side">
+                <span>Share</span>
+                <p>Share your code to other, you just have to remember the userId of the other person to do so. You have
+                    to be logged in for that.</p>
+            </div>
         </div>
-    </div>
-</div>
-<h1 class="services-header">Our Services</h1>
-<div class="wrapper">
-    <div class="box" id="compiler">
-        <div class="front-face">
-            <div class="icon"><i class="fa-solid fa-code"></i></div>
-            <span>Compile</span>
-        </div>
-        <div class="back-side">
-            <span>Compile</span>
-            <p>You can compile your here wihtout login as well, and along with that we also offer you to download and share you codes to other</p>
-        </div>
-    </div>
-    <div class="box" id="share">
-        <div class="front-face">
-            <div class="icon"><i class="fa-sharp fa-solid fa-share"></i></div>
-            <span>Share</span>
-        </div>
-        <div class="back-side">
-            <span>Share</span>
-            <p>Share your code to other, you just have to remember the userId of the other person to do so. You have to be logged in for that.</p>
-        </div>
-    </div>
-    <div class="box" id="practice">
-        <div class="front-face">
-            <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
-            <span>Practice</span>
-        </div>
-        <div class="back-side">
-            <span>Practice</span>
-            <p>We also offer you quality questions fetched from the pretigious coding sites as per difficulty level (easy,medium and hard)</p>
+        <div class="box" id="practice">
+            <div class="front-face">
+                <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+                <span>Practice</span>
+            </div>
+            <div class="back-side">
+                <span>Practice</span>
+                <p>We also offer you quality questions fetched from the pretigious coding sites as per difficulty level
+                    (easy,medium and hard)</p>
+            </div>
         </div>
     </div>
-</div>
-</body>
-<script src="js/home.js"></script>
-</html>
+    </body>
+    <script src="js/home.js"></script>
+    </html>

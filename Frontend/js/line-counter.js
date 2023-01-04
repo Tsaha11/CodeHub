@@ -1,4 +1,3 @@
-var codeEditor = document.getElementById('codeEditor');
 var lineCounter = document.getElementById('lineCounter');
 codeEditor.addEventListener('scroll', () => {
     lineCounter.scrollTop = codeEditor.scrollTop;
