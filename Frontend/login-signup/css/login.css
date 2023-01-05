@@ -58,7 +58,7 @@ body{
 }
 .right span{
     color: rgb(8, 8, 8);
-    margin-right: auto;
+	float: left;
 }
 h2{
 	position: relative;
