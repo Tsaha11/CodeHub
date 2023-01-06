@@ -5,7 +5,7 @@ const User=require('../Schema/login-signup');
 const bcrypt=require('bcrypt');
 const {validationResult}=require('express-validator/check');
 const getLogin=(req,res,next)=>{
-    res.render('login-signup/ejs/login',{title:'Login',error:req.flash('error')})
+    res.render('login-signup/ejs/login',{title:'Login',error:req.flash('error'),pop:req.flash('pop')});// popup alert
 }
 const getSignup=(req,res,next)=>{
     res.render('login-signup/ejs/signup',{title:'Sign-Up',error:req.flash('error')})
@@ -35,6 +35,7 @@ const postSignup=async(req,res,next)=>{
                 array:arr
             }).save().then((result)=>{
                 console.log('data created');
+                req.flash('pop','show karo ji');
                 res.redirect('/login');
             }).catch(er=>{
                 console.log(er);
@@ -70,9 +71,11 @@ const postLogin=async(req,res,next)=>{
         const passCheck=await bcrypt.compare(password,user[0].password);
         if(passCheck==true){
             req.session.isLoggedIn=true;
+            req.session.email=email;
             res.redirect('/');
         }
         else{
+            req.flash('error','password not matched')
             res.redirect('/login');
         }
     }

@@ -1,5 +1,8 @@
+const { compareSync } = require('bcrypt');
+const { response } = require('express');
 const express=require('express');
 const request=require('request');
+const User=require('../Schema/login-signup');
 const getCodeText=(req,res,next)=>{
     const codeText=req.body.codeText;
     const lang=req.body.lang;
@@ -23,4 +26,36 @@ const getCodeText=(req,res,next)=>{
         res.json({error:error,statusCode:response,body:body})
     })
 }
-module.exports={getCodeText};
+const postSave=(req,res,next)=>{
+    User.findOneAndUpdate({email:req.session.email}).then((result)=>{
+        const arrLenght=result.array.length;
+        var msg='';
+        if(arrLenght>=5){
+            msg='Inbox fully loaded clear your inbox';
+            res.json({msg:msg});
+        }
+        else{
+            const code=req.body.code.trim();
+            const toolDate=new Date();
+            const date=`${toolDate.getDate()}/${toolDate.getMonth()+1}/${toolDate.getFullYear()}`;
+            const time=`${toolDate.getHours()}:${toolDate.getMinutes()}:${toolDate.getSeconds()}`;
+            const obj={
+                code:code,
+                date:date,
+                time:time,
+                sentBy:"self",
+                type:"saved"
+            }
+            result.array.push(obj);
+            return result.save();
+        }
+    }).then((result)=>{
+        msg='Code added successfully';
+        console.log(result);
+        res.json({msg:msg});
+    })
+    .catch(er=>{
+        console.log(er);
+    })
+}
+module.exports={getCodeText,postSave};

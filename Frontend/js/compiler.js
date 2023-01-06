@@ -5,6 +5,7 @@ const resetBtn=document.getElementById('resetBtn');
 const copyBtn=document.getElementById('copyBtn');
 const input=document.getElementById('field-input');
 const output=document.getElementById('field-output');
+const savingBtn=document.querySelector('#saving button');
 resetBtn.addEventListener('click',(er)=>{
     codeEditor.value='';
 })
@@ -19,7 +20,7 @@ for(const lang of langBtn){
 }
 const runBtn=document.getElementById('runBtn');
 runBtn.addEventListener('click',(er)=>{
-    if(codeEditor.value=='' || file.innerHTML=='' || input.value==''){
+    if(codeEditor.value=='' || file.innerHTML==''){
         alert('Please fill the necessary criteria');
         // dialog popping box ayega baad mein
     }
@@ -38,8 +39,42 @@ runBtn.addEventListener('click',(er)=>{
     }).then(data=>{
         /// error handling baki hai
         output.value=data.body.output;
+        const div=document.querySelector('.contents');
+        const header=document.querySelector('.contents p')
+        header.innerHTML='Compilation Complete';
+        div.classList.add('popclass');
+        setTimeout(() => {
+            const div=document.querySelector('.contents');
+            div.classList.remove('popclass');
+        }, 3000);
     })
     .catch(er=>{
+        console.log(er);
+    })
+})
+savingBtn.addEventListener('click',(er)=>{
+    console.log(codeEditor.value);
+    fetch('http://localhost:3000/compiler/save',{
+        method:'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body:JSON.stringify({
+            code:codeEditor.value
+        })
+    }).then((result)=>{
+        return result.json();
+    }).then((data)=>{
+        const div=document.querySelector('.contents');
+        const header=document.querySelector('.contents p')
+        header.innerHTML=data.msg;
+        div.classList.add('popclass');
+        setTimeout(() => {
+            const div=document.querySelector('.contents');
+            div.classList.remove('popclass');
+        }, 3000);
+    })
+    .catch((er)=>{
         console.log(er);
     })
 })
