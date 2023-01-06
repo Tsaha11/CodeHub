@@ -11,5 +11,6 @@ router.get('/practice',isAuth,controller.getPractice);
 router.get('/practice/easy',isAuth,controller.getEasyProblem);
 router.get('/practice/medium',isAuth,controller.getMediumProblem);
 router.get('/practice/hard',isAuth,controller.getHardProblem);
+router.post('/logout',isAuth,controller.getLogout);
 router.post('/compiler',compilerController.getCodeText);
 module.exports=router;

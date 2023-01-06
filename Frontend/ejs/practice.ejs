@@ -22,9 +22,9 @@
     <div class="navbar">
       <div class="content">
         <div class="icon">
-          <label><i class="fa-solid fa-user"></i></label>
+          <label><img src="/ejs/img/CompanyLogo.png" width="100px"></label>
         </div>
-        <div class="logo"><a href="/home">ShareCode</a></div>
+        <div class="logo"><a href="/home">CodeHub</a></div>
         <div class="list">
           <ul class="menu-list">
             <li><a href="/home">Home</a></li>
@@ -39,7 +39,7 @@
           </div>
         <%}else{%>
           <div class="signup-login logout-btn">
-            <button>Logout</button>
+            <form action="/logout" method="POST"><button>Logout</button></form>
           </div>
         <%}%>
       </div>

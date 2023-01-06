@@ -15,4 +15,11 @@ for(const icon of icons){
 }
 logoutBtn.addEventListener('click',(er)=>{
     const child=er.target;
+    fetch('http://localhost:3000/logout',{
+        method:'POST',
+    }).then(result=>{
+        console.log(result)
+    }).catch(er=>{
+        console.log(er);
+    })
 })

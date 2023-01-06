@@ -1,4 +1,41 @@
-<%-include('./partial/header.ejs')%> <br /><br />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/css/compiler.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/line-counter.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/share.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="content">
+        <div class="icon"><label><img src="/ejs/img/CompanyLogo.png" width="100px"></label></div>
+        <div class="logo"><a href="/home">CodeHub</a></div>
+        <div class="list">
+            <ul class="menu-list">
+              <li><a href="/home">Home</a></li>
+              <li><a href="/compiler">Compile</a></li>
+              <li><a href="/share">Share</a></li>
+              <li><a href="/practice">Practice</a></li>
+            </ul>
+        </div>
+        <%if(isLogin!=true){%>
+          <div class="signup-login login-btn">
+            <a href="/login"><button>Login</button></a>
+          </div>
+        <%}else{%>
+          <div class="signup-login logout-btn">
+            <form action="/logout" method="POST"><button>Logout</button></form>
+          </div>
+        <%}%>
+      </div>
+    </div> <br /><br />
 <div class="inbox-selector">
   <div class="share-div" id="share">Share</div>
   <div class="inbox-div" id="inbox">Inbox</div>

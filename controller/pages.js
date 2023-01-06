@@ -7,7 +7,7 @@ const getHome=async(req,res,next)=>{
     try{
         const qoutes=await quote.find();
         if(qoutes!=null){
-            res.render('ejs/home',{title:'home',qoutes:qoutes});
+            res.render('ejs/home',{title:'home',qoutes:qoutes,isLogin:req.session.isLoggedIn});
         }
     }
     catch(er){
@@ -17,13 +17,12 @@ const getHome=async(req,res,next)=>{
     }
 }
 const getCompiler=(req,res,next)=>{
-    res.render('ejs/compiler',{title:'compiler'});
+    res.render('ejs/compiler',{title:'compiler',isLogin:req.session.isLoggedIn});
 }
 const getShare=(req,res,next)=>{
-    res.render('ejs/share',{title:'share'})
+    res.render('ejs/share',{title:'share',isLogin:req.session.isLoggedIn})
 }
 const getPractice=async(req,res,next)=>{
-    console.log(req.session.isLoggedIn);
     try{
         const data=await Easy.find().skip(0).limit(20);
         if(data!=null){
@@ -39,7 +38,7 @@ const getEasyProblem=async(req,res,next)=>{
     try{
         const data=await Easy.find().skip(0).limit(20);
         if(data!=null){
-            res.render('ejs/practice',{title:'home',data:data});
+            res.render('ejs/practice',{title:'home',data:data,isLogin:req.session.isLoggedIn});
         }
     }
     catch(er){
@@ -51,7 +50,7 @@ const getMediumProblem=async(req,res,next)=>{
     try{
         const data=await Medium.find().skip(0).limit(20);
         if(data!=null){
-            res.render('ejs/practice',{title:'home',data:data});
+            res.render('ejs/practice',{title:'home',data:data,isLogin:req.session.isLoggedIn});
         }
     }
     catch(er){
@@ -63,7 +62,7 @@ const getHardProblem=async(req,res,next)=>{
     try{
         const data=await Hard.find().skip(0).limit(20);
         if(data!=null){
-            res.render('ejs/practice',{title:'home',data:data});
+            res.render('ejs/practice',{title:'home',data:data,isLogin:req.session.isLoggedIn});
         }
     }
     catch(er){
@@ -71,4 +70,9 @@ const getHardProblem=async(req,res,next)=>{
         console.log(er)
     }
 }
-module.exports={getHome,getCompiler,getShare,getPractice,getEasyProblem,getMediumProblem,getHardProblem};
+const getLogout=(req,res,next)=>{
+    req.session.destroy(()=>{
+        res.redirect('/login');
+    })
+}
+module.exports={getHome,getCompiler,getShare,getPractice,getEasyProblem,getMediumProblem,getHardProblem,getLogout};
