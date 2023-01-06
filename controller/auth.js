@@ -27,10 +27,12 @@ const postSignup=async(req,res,next)=>{
         if(userUnique.length==0 && emailUnique.length==0){
             const hashpw=await bcrypt.hash(password,10);
             // email verification
+            const arr=[];
             const user=new User({
                 username:username,
                 email:email,
-                password:hashpw
+                password:hashpw,
+                array:arr
             }).save().then((result)=>{
                 console.log('data created');
                 res.redirect('/login');
@@ -67,6 +69,7 @@ const postLogin=async(req,res,next)=>{
         }
         const passCheck=await bcrypt.compare(password,user[0].password);
         if(passCheck==true){
+            req.session.isLoggedIn=true;
             res.redirect('/');
         }
         else{

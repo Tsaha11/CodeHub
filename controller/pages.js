@@ -23,10 +23,11 @@ const getShare=(req,res,next)=>{
     res.render('ejs/share',{title:'share'})
 }
 const getPractice=async(req,res,next)=>{
+    console.log(req.session.isLoggedIn);
     try{
         const data=await Easy.find().skip(0).limit(20);
         if(data!=null){
-            res.render('ejs/practice',{title:'home',data:data});
+            res.render('ejs/practice',{title:'home',data:data,isLogin:req.session.isLoggedIn});
         }
     }
     catch(er){

@@ -1,1 +1,25 @@
-<%-include('./partial/header.ejs')%>
+<%-include('./partial/header.ejs')%> <br /><br />
+<div class="inbox-selector">
+  <div class="share-div" id="share">Share</div>
+  <div class="inbox-div" id="inbox">Inbox</div>
+</div>
+<br>
+<hr>
+<br>
+<div class="share-panel">
+  <form>
+    <div class="share-code">
+      <textarea placeholder="Paste your Code here" rows="20" cols="100"></textarea>
+    </div>
+    <div class="share-username">
+        <span>Write the username of other person</span><br>
+      <input type="text" placeholder="username" />
+    </div>
+    <div class="share-div-button">
+        <button class="share-button button-37">Share</button>
+    </div>
+  </form>
+</div>
+</body>
+  <script src="/js/share.js"></script>
+</html>

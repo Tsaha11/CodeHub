@@ -8,6 +8,19 @@ const loginSchema=new mongoose.Schema({
     },
     password:{
         type:String,required:true
-    }
+    },
+    array:[]
 });
 module.exports=mongoose.model('userProfile',loginSchema);
+
+// object sample{
+//     codequestion,
+//     codeheader,
+//     codelink,
+//     codeinput,
+//     codeoutput,
+//     date,
+//     time,
+//     method,-- receiver,send
+// }
+// not more than 5

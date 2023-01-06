@@ -1,4 +1,5 @@
 const codingDiv=document.getElementsByClassName('difficulty');
+const logoutBtn=document.querySelector('.logout-btn button');
 for(const div of codingDiv){
     div.addEventListener('click',(er)=>{
         const add=div.classList[1];
@@ -12,3 +13,6 @@ for(const icon of icons){
         const parent=id.parentNode.parentNode.parentNode.classList.add('tick-green');
     })
 }
+logoutBtn.addEventListener('click',(er)=>{
+    const child=er.target;
+})

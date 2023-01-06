@@ -33,9 +33,15 @@
             <li><a href="/practice">Practice</a></li>
           </ul>
         </div>
-        <div class="signup-login">
-          <a href="/login"><button>Login</button></a>
-        </div>
+        <%if(isLogin!=true){%>
+          <div class="signup-login login-btn">
+            <a href="/login"><button>Login</button></a>
+          </div>
+        <%}else{%>
+          <div class="signup-login logout-btn">
+            <button>Logout</button>
+          </div>
+        <%}%>
       </div>
     </div>
     <div class="difficulty-selector">
@@ -65,7 +71,7 @@
       </div> -->
       <%if(data!=null){%>
         <%for(let i=0;i<data.length;i++){%>
-          <div class="question" id="tick-green">
+          <div class="question">
             <div>
               <h3 class="question-header"><%=data[i].header%></h3>
               <a href="<%=data[i].link%>" target="_blank">Question link</a>
