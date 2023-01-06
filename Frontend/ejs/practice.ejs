@@ -1,1 +1,87 @@
-<%-include('./partial/header.ejs')%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/css/compiler.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/line-counter.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/practice.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="content">
+        <div class="icon">
+          <label><i class="fa-solid fa-user"></i></label>
+        </div>
+        <div class="logo"><a href="/home">ShareCode</a></div>
+        <div class="list">
+          <ul class="menu-list">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/compiler">Compile</a></li>
+            <li><a href="/share">Share</a></li>
+            <li><a href="/practice">Practice</a></li>
+          </ul>
+        </div>
+        <div class="signup-login">
+          <a href="/login"><button>Login</button></a>
+        </div>
+      </div>
+    </div>
+    <div class="difficulty-selector">
+      <div class="difficulty easy">Easy</div>
+      <div class="difficulty medium">Medium</div>
+      <div class="difficulty hard">Hard</div>
+    </div>
+    <br><br>
+    <div class="coding-wrapper">
+      <div class="progress-bar">
+        <div class="circular-progress">
+          <span class="progress-value">0%</span>
+        </div>
+        <span class="text">Progress</span>
+      </div>
+      <div class="problem-wrapper">
+        <!-- <div class="question">
+          <div>
+            <h3 class="question-header">Add Minus Plus</h3>
+            <a href="">Question link</a>
+          </div>
+          <div class="tick">
+            <span><i class="fa-regular fa-circle-check"></i></span>
+            <span id="markasdone">Mark as done</span>
+          </div>
+        </div>
+      </div> -->
+      <%if(data!=null){%>
+        <%for(let i=0;i<data.length;i++){%>
+          <div class="question" id="tick-green">
+            <div>
+              <h3 class="question-header"><%=data[i].header%></h3>
+              <a href="<%=data[i].link%>" target="_blank">Question link</a>
+            </div>
+            <div class="tick">
+              <span><i class="fa-regular fa-circle-check" id="<%=data[i]._id%>"></i></span>
+              <span id="markasdone">Mark as done</span>
+            </div>
+          </div>
+        <%}%>
+      <%}else{%>
+        <div>
+          <h2>Error in fetching</h2>
+        </div>
+      <%}%>
+    </div>
+  </body>
+  <script src="/js/practice.js"></script>
+</html>

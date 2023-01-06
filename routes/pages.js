@@ -7,5 +7,8 @@ router.get('/home',controller.getHome);
 router.get('/compiler',controller.getCompiler);
 router.get('/share',controller.getShare);
 router.get('/practice',controller.getPractice);
+router.get('/practice/easy',controller.getEasyProblem);
+router.get('/practice/medium',controller.getMediumProblem);
+router.get('/practice/hard',controller.getHardProblem);
 router.post('/compiler',compilerController.getCodeText);
 module.exports=router;

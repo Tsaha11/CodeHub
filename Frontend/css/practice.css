@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Cutive&display=swap');
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+.difficulty-selector{
+    width: 55%;
+    margin: auto;
+    display: flex;
+    margin-top: 15px;
+    flex-direction: row;
+    height: 35px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    justify-content: space-between;
+}
+.difficulty{
+    text-align: center;
+    width: 33.3%;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    justify-content: center;
+    font-weight: 800;
+}
+.difficulty:hover{
+    background-color: rgb(188, 188, 188);
+    cursor: pointer;
+}
+.coding-wrapper{
+    width: 70%;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+.progress-bar{
+    width: 25%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 30px;
+    align-items: center;
+}
+.circular-progress{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: conic-gradient(#6c18da 180deg,#ededed 0deg);
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+.circular-progress::before{
+    position: absolute;
+    height: 170px;
+    content: "";
+    border-radius: 50%;
+    width: 170px;
+    background-color: rgb(254, 253, 255);
+}
+.progress-value{
+    position: relative;
+    font-size: 35px;
+    font-weight: 500;
+}
+.progress-bar .text{
+    font-weight: 600;
+    font-size: 25px;
+}
+.problem-wrapper{
+    padding: 15px;
+    width: 75%;
+}
+.problem-wrapper .question{
+    width: 100%;
+    padding: 8px;
+    height: 14vh;
+    padding-left: 15px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    display: flex;
+    background-color: rgb(251, 251, 214);
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.tick{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.tick span{
+    color: rgb(141, 204, 141);
+    font-size: 1.8rem;
+}
+.question a{
+    margin: 1px;
+    font-size: 15px;
+}
+.question-header{
+    width: 100%;
+}
+.tick span:hover{
+    color: rgb(5, 156, 5);
+    cursor: pointer;
+    font-size: 1.9rem;
+}
+.tick #markasdone{
+    font-size: 13px;
+    color: black;
+}
+#tick-green{
+    background-color: rgb(171, 228, 171);
+}
