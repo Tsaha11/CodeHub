@@ -82,9 +82,124 @@
 }
 .inbox-selector div:hover{
     cursor: pointer;
-    background-color: rgb(123, 123, 255);
+    background-color: rgb(246, 205, 115);
 }
 .button-37:hover {
   box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
   transform: translateY(-2px);
+}
+/* styling for inbox */
+.code-container{
+    width: 60%;
+    /* border: 2px solid black; */
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.savedCode{
+    width: 90%;
+    box-sizing: border-box;
+    margin: 10px;
+    /* border: 2px solid black; */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.code-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.code-container .code-info{
+    width: 40%;
+    margin: 10px;
+}
+.code-container .code-icon{
+    margin: 15px;
+    margin-right: 30px;
+}
+.code-info ul{
+    list-style-type: none;
+    font-family: 'Poppins',sans-serif;
+}
+ul span{
+    font-family:sans-serif;
+    font-size: 1.1rem;
+}
+.code-info ul li{
+    margin: 4px;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+.code-text{
+    overflow:scroll;
+    height: 100px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 95%;
+    margin: auto;
+}
+.code-text p{
+    margin: 15px;
+    margin-left: 30px;
+    text-align: left;
+}
+.code-text h4{
+    margin: 15px;
+    margin-bottom: 0px;
+}
+.delete-code{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    margin: 10px;
+}
+.delete-code button{
+    width: 15%;
+}
+/* CSS */
+.button-24 {
+  background: #bd0a04;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.button-24:hover,
+.button-24:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+.button-24:active {
+  opacity: .5;
+}
+.green{
+    border: 2px solid rgb(82, 213, 82);
+}
+.black{
+    border: 2px solid black;
+}
+.blue{
+    border: 2px solid rgb(10, 10, 249);
 }

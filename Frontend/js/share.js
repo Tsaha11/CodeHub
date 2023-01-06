@@ -4,5 +4,8 @@ for(const d of div){
         if(er.target.classList.contains('inbox-div')==true){
             window.location.href='/share/inbox';
         }
+        else{
+            window.location.href='/share';
+        }
     })
 }

@@ -9,7 +9,8 @@ const loginSchema=new mongoose.Schema({
     password:{
         type:String,required:true
     },
-    array:[]
+    array:[],
+    done:[]
 });
 module.exports=mongoose.model('userProfile',loginSchema);
 

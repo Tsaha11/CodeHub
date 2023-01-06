@@ -43,6 +43,38 @@
 <br>
 <hr>
 <br>
+<%if(data){%>
+  <div class="code-container">
+    <%for(var i=data.length-1;i>=0;i--){%>
+      <%if(data[i].type==='sent'){%>
+        <div class="savedCode green">
+      <%}else if(data[i].type==='received'){%>
+        <div class="savedCode blue">
+      <%}else{%>
+        <div class="savedCode black">
+      <%}%>
+        <div class="code-header">
+            <div class="code-info">
+                <ul class="detail-list">
+                    <li class="detail">Date : <span><%=data[i].date%></span></li>
+                    <li class="detail">Time : <span><%=data[i].time%></span></li>
+                    <li class="detail">Type : <span><%=data[i].type%></span></li>
+                    <li class="detail">SentBy : <span><%=data[i].sentBy%></span></li>
+                </ul>
+            </div>
+            <div class="code-icon">
+                <img src="/ejs/img/coding.png" width="100px" height="100px">
+            </div>
+        </div>
+        <div class="code-text">
+            <p><%=data[i].code%></p>
+        </div>
+        <div class="delete-code"><button class="button-24">Delete</button></div>
+    </div>
+    <%}%>
+</div>
+
+<%}else{%>
 <div class="share-panel">
   <form>
     <div class="share-code">
@@ -57,6 +89,7 @@
     </div>
   </form>
 </div>
+<%}%>
 </body>
   <script src="/js/share.js"></script>
 </html>
