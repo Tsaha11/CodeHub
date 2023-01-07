@@ -27,7 +27,7 @@ const getPractice=async(req,res,next)=>{
     try{
         const data=await Easy.find().skip(0).limit(20);
         if(data!=null){
-            res.render('ejs/practice',{title:'home',data:data,isLogin:req.session.isLoggedIn});
+            res.render('ejs/practice',{title:'home',data:data,isLogin:req.session.isLoggedIn,seen:data.seen});
         }
     }
     catch(er){
@@ -82,18 +82,15 @@ const getInbox=async(req,res,next)=>{
 }
 const postDone=(req,res,next)=>{
     const id=req.body.id;
-    console.log(typeof(id));
-    console.log(id);
     User.findOne({email:req.session.email}).then((data)=>{
-        data.done.push(id);
-        data.done.sort();
+        if(data.done.includes(id)==false){
+            data.done.push(id);
+            data.done.sort();
+        }
         return data.save();
     }).then((data)=>{
-        console.log(data);
-        res.json({msg:'question solved successfully'});
+        res.json({seen:data.done});
     }).catch((er)=>{
-        console.log('error')
-        // console.log(er);
         res.json({msg:'error occured'});
     })
 }
@@ -101,7 +98,7 @@ const postMail=async(req,res,next)=>{
     const {code,username}=req.body;
     try{
         const user1=await User.findOne({email:req.session.email});
-    const user2=await User.findOne({username:username});
+        const user2=await User.findOne({username:username});
     if(!user1 || !user2 || (user1.array.length>=5 && user2.array.length>=5)){
         res.json({msg:'Failed : possible reasons Full mail inbox or invalid username'});
     }
@@ -139,4 +136,13 @@ const postMail=async(req,res,next)=>{
 
     }
 }
-module.exports={getHome,getCompiler,getShare,getPractice,getEasyProblem,getMediumProblem,getHardProblem,getLogout,getInbox,postDone,postMail};
+const getSeen=async(req,res,next)=>{
+    try{
+        const user=await User.findOne({email:req.session.email});
+        res.json({seen:user.done});
+    }
+    catch(er){
+        res.json({msg:'error from server side'});
+    }
+}
+module.exports={getHome,getCompiler,getShare,getPractice,getEasyProblem,getMediumProblem,getHardProblem,getLogout,getInbox,postDone,postMail,getSeen};

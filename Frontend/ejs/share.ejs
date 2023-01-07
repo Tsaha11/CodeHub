@@ -69,7 +69,11 @@
                     <li class="detail">Date : <span><%=data[i].date%></span></li>
                     <li class="detail">Time : <span><%=data[i].time%></span></li>
                     <li class="detail">Type : <span><%=data[i].type%></span></li>
-                    <li class="detail">SentBy : <span><%=data[i].sentBy%></span></li>
+                    <%if(data[i].sentBy==null){%>
+                      <li class="detail">SentTo : <span><%=data[i].sentTo%></span></li>
+                    <%}else{%>
+                      <li class="detail">SentBy : <span><%=data[i].sentBy%></span></li>
+                    <%}%>
                 </ul>
             </div>
             <div class="code-icon">

@@ -40,6 +40,6 @@ shareBtn.addEventListener('click',(er)=>{
             alert(`${data.msg}`);
         }
     }).catch((er)=>{
-
+        alert('Failed : error from server side');
     })
 })

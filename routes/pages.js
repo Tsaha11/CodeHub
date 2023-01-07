@@ -12,6 +12,7 @@ router.get('/practice/easy',isAuth,controller.getEasyProblem);
 router.get('/practice/medium',isAuth,controller.getMediumProblem);
 router.get('/practice/hard',isAuth,controller.getHardProblem);
 router.get('/share/inbox',isAuth,controller.getInbox);
+router.get('/practice/seen',isAuth,controller.getSeen);
 router.post('/logout',isAuth,controller.getLogout);
 router.post('/compiler',compilerController.getCodeText);
 router.post('/compiler/save',compilerController.postSave);
