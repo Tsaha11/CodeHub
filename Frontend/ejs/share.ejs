@@ -45,6 +45,16 @@
 <br>
 <%if(data){%>
   <div class="code-container">
+    <div class="contents popclass">
+      <div class="headerOfPop">
+          <h2>Attention!</h2>
+          <label for="click" class="fas fa-times"></label>
+      </div>
+      <label for="click" class="fas fa-check"></label>
+      <p>mails fetched from database successfully</p>
+      <div class="line"></div>
+      <label for="click" class="close-btn">Close</label>
+    </div>
     <%for(var i=data.length-1;i>=0;i--){%>
       <%if(data[i].type==='sent'){%>
         <div class="savedCode green">
@@ -75,19 +85,27 @@
 </div>
 
 <%}else{%>
+  <div class="contents">
+    <div class="headerOfPop">
+        <h2>Attention!</h2>
+        <label for="click" class="fas fa-times"></label>
+    </div>
+    <label for="click" class="fas fa-check"></label>
+    <p>mails fetched from database successfully</p>
+    <div class="line"></div>
+    <label for="click" class="close-btn">Close</label>
+  </div>
 <div class="share-panel">
-  <form>
     <div class="share-code">
       <textarea placeholder="Paste your Code here" rows="20" cols="100"></textarea>
     </div>
     <div class="share-username">
         <span>Write the username of other person</span><br>
-      <input type="text" placeholder="username" />
+      <input type="text" placeholder="username" id="usernameField">
     </div>
     <div class="share-div-button">
         <button class="share-button button-37">Share</button>
     </div>
-  </form>
 </div>
 <%}%>
 </body>

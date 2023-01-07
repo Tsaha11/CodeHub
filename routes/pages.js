@@ -16,4 +16,5 @@ router.post('/logout',isAuth,controller.getLogout);
 router.post('/compiler',compilerController.getCodeText);
 router.post('/compiler/save',compilerController.postSave);
 router.post('/share/done',controller.postDone);
+router.post('/share',controller.postMail);
 module.exports=router;

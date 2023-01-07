@@ -97,4 +97,46 @@ const postDone=(req,res,next)=>{
         res.json({msg:'error occured'});
     })
 }
-module.exports={getHome,getCompiler,getShare,getPractice,getEasyProblem,getMediumProblem,getHardProblem,getLogout,getInbox,postDone};
+const postMail=async(req,res,next)=>{
+    const {code,username}=req.body;
+    try{
+        const user1=await User.findOne({email:req.session.email});
+    const user2=await User.findOne({username:username});
+    if(!user1 || !user2 || (user1.array.length>=5 && user2.array.length>=5)){
+        res.json({msg:'Failed : possible reasons Full mail inbox or invalid username'});
+    }
+    else{
+        const code=req.body.code.trim();
+        const toolDate=new Date();
+        const date=`${toolDate.getDate()}/${toolDate.getMonth()+1}/${toolDate.getFullYear()}`;
+        const time=`${toolDate.getHours()}:${toolDate.getMinutes()}:${toolDate.getSeconds()}`;
+        const obj1={
+            code:code,
+            date:date,
+            time:time,
+            sentTo:user2.username,
+            type:"sent"
+        }
+        const obj2={
+            code:code,
+            date:date,
+            time:time,
+            sentBy:user1.username,
+            type:"received"
+        }
+        if(user1.array.length<5){
+            user1.array.push(obj1);
+            const result1=await user1.save();
+        }
+        if(user2.array.length<5){
+            user2.array.push(obj2);
+            const result2=await user2.save();
+        }
+        res.json({msg:'mail shared'})
+    }
+    }catch(er){
+        console.log(er);
+
+    }
+}
+module.exports={getHome,getCompiler,getShare,getPractice,getEasyProblem,getMediumProblem,getHardProblem,getLogout,getInbox,postDone,postMail};
