@@ -10,7 +10,9 @@ const loginSchema=new mongoose.Schema({
         type:String,required:true
     },
     array:[],
-    done:[]
+    doneEasy:[],
+    doneMedium:[],
+    doneHard:[]
 });
 module.exports=mongoose.model('userProfile',loginSchema);
 

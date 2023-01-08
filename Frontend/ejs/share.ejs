@@ -44,6 +44,9 @@
 <hr>
 <br>
 <%if(data){%>
+  <%if(data.length==0){%>
+    <h2 style="text-align: center;">No Mail in Inbox</h2>
+  <%}%>
   <div class="code-container">
     <div class="contents popclass">
       <div class="headerOfPop">
@@ -112,6 +115,53 @@
     </div>
 </div>
 <%}%>
+<br><br>
+<hr><hr>
+<footer class="footer">
+  <div class="container-footer">
+    <div class="upper-part">
+      <div class="about-section">
+        <h5 class="headin5_amrc col_white_amrc pt2">About us</h5>
+        <!--headin5_amrc-->
+        <p class="mb10" style="text-align: left;">
+          CodeHub is a code sharing and code compiling website. It also has practice section where you can track your
+          progress.
+        </p>
+        <p style="text-align: left;"><i class="fa fa-location-arrow"></i>Delhi, India</p>
+        <p style="text-align: left;"><i class="fa fa-phone"></i> 93XXXXXXXX</p>
+        <p style="text-align: left;"><i class="fa fa fa-envelope"></i> XXtuhinXX@gmail.com</p>
+      </div>
+
+      <div class="link-section">
+        <h5>Quick links</h5>
+        <ul class="links-list">
+          <li><a href="/home">Home</a></li>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/signup">Signup</a></li>
+          <li><a href="http://webenlance.com">About me</a></li>
+          <li><a href="http://webenlance.com">Documentation</a></li>
+          <li><a href="http://webenlance.com">Services</a></li>
+          <li><a href="http://webenlance.com">Next Project Teaser</a></li>
+        </ul>
+      </div>
+
+      <div class="title-section" id="title-header">
+        <h2><a href="/home" class="footer-title">CodeHub</a></h2>
+      </div>
+    </div>
+
+    <div class="lower-part">
+    <!--foote_bottom_ul_amrc ends here-->
+    <p class="text-center" style="color: white;">
+      Copyright <i class="fa fa-copyright" aria-hidden="true"></i> | Made by Tuhin saha
+    </p>
+
+    <!--social_footer_ul ends here-->
+    </div>
+  </div>
+</footer>
 </body>
+<script src="js/footer"></script>
+
   <script src="/js/share.js"></script>
 </html>

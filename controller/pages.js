@@ -145,4 +145,26 @@ const getSeen=async(req,res,next)=>{
         res.json({msg:'error from server side'});
     }
 }
-module.exports={getHome,getCompiler,getShare,getPractice,getEasyProblem,getMediumProblem,getHardProblem,getLogout,getInbox,postDone,postMail,getSeen};
+const postInboxDelete=async(req,res,next)=>{
+    const timeStamp=req.body.timeStamp;
+    try{
+        const user=await User.findOne({email:req.session.email});
+        const arr=user.array;
+        var count=0;
+        for(const ele of arr){
+            if(ele.time==timeStamp){
+                break;
+            }
+            count++;
+        }
+        arr.splice(count,1);
+        user.done=arr;
+        const verdict=await user.save();
+        if(verdict!=null){
+            res.json({msg:'Mail deleted successfully'});
+        }
+    }catch(er){
+        res.json({msg:'error from server side'});
+    }
+}
+module.exports={getHome,getCompiler,getShare,getPractice,getEasyProblem,getMediumProblem,getHardProblem,getLogout,getInbox,postDone,postMail,getSeen,postInboxDelete};

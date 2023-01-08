@@ -61,14 +61,13 @@ const postLogin=async(req,res,next)=>{
         return res.render('login-signup/ejs/login',{title:'Login-Up',error:req.flash('error')})
     }
     try{
-        const user=await User.find({email:email});
-        if(user.length==0){
+        const user=await User.findOne({email:email});
+        if(!user){
             // if email not found
-            console.log('e');
             req.flash('error','Email does not exist');
             return res.render('login-signup/ejs/login',{title:'Login-Up',error:req.flash('error')})
         }
-        const passCheck=await bcrypt.compare(password,user[0].password);
+        const passCheck=await bcrypt.compare(password,user.password);
         if(passCheck==true){
             req.session.isLoggedIn=true;
             req.session.email=email;
