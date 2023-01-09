@@ -13,7 +13,6 @@ const getHome=async(req,res,next)=>{
     }
     catch(er){
         console.log(er);
-        console.log('Error');
         res.redirect('/compiler')
     }
 }
@@ -25,7 +24,7 @@ const getShare=(req,res,next)=>{
 }
 const getNextProject=(req,res,next)=>{
     res.send(`
-        <h1>Next Project<h1>
+        <h1>Next Project</h1>
         <p>Stack Overflow</p>
     `)
 }
@@ -37,7 +36,6 @@ const getPractice=async(req,res,next)=>{
         }
     }
     catch(er){
-        console.log('error occured');
         console.log(er)
     }
 }

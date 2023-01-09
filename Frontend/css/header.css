@@ -285,3 +285,16 @@ footer a{
     cursor: pointer;
     color: white;
 }
+#disable-screen{
+    display: none;
+    visibility: hidden;
+}
+@media (max-width:1150px){
+    #disable-screen{
+        display: block;
+        visibility: visible;
+    }
+    :not(#disable-screen){
+        visibility: hidden;
+    }
+}   

@@ -51,7 +51,6 @@ const postSave=(req,res,next)=>{
         }
     }).then((result)=>{
         msg='Code added successfully';
-        console.log(result);
         res.json({msg:msg});
     })
     .catch(er=>{

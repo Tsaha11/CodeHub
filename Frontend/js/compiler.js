@@ -29,7 +29,7 @@ runBtn.addEventListener('click',(er)=>{
         alert('Please fill the necessary criteria');
         // dialog popping box ayega baad mein
     }
-    fetch('http://localhost:3000/compiler',{
+    fetch('/compiler',{
         method:'POST',
         headers: {
             "Content-Type": "application/json",
@@ -59,7 +59,7 @@ runBtn.addEventListener('click',(er)=>{
 })
 savingBtn.addEventListener('click',(er)=>{
     console.log(codeEditor.value);
-    fetch('http://localhost:3000/compiler/save',{
+    fetch('/compiler/save',{
         method:'POST',
         headers: {
             "Content-Type": "application/json",

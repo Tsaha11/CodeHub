@@ -14,7 +14,7 @@ for(const btn of deleteBtn){
         const child=er.target;
         const parent=child.parentNode.parentNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild.nextElementSibling.firstElementChild.innerText;
         // time stamp is unique
-        fetch('http://localhost:3000/share/inbox/delete',{
+        fetch('/share/inbox/delete',{
             method:'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -55,7 +55,7 @@ function remove(div){
 }
 if(shareBtn!=null){
     shareBtn.addEventListener('click',(er)=>{
-        fetch('http://localhost:3000/share',{
+        fetch('/share',{
             method:'POST',
             headers: {
                 "Content-Type": "application/json",

@@ -34,8 +34,6 @@ const postSignup=async(req,res,next)=>{
                 password:hashpw,
                 array:arr
             }).save().then((result)=>{
-                console.log('data created');
-                req.flash('pop','show karo ji');
                 res.redirect('/login');
             }).catch(er=>{
                 console.log(er);
