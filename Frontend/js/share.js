@@ -4,6 +4,11 @@ const username=document.getElementById('usernameField');
 const textarea=document.querySelector('.share-code textarea');
 const body=document.querySelector('body');
 const deleteBtn=document.querySelectorAll('.delete-code button');
+const closeBtn=document.getElementsByClassName('close-btn')[0];
+closeBtn.addEventListener('click',(er)=>{
+    const val=document.querySelector('.contents');
+    val.classList.remove('popclass');
+})
 for(const btn of deleteBtn){
     btn.addEventListener('click',(er)=>{
         const child=er.target;
@@ -20,7 +25,7 @@ for(const btn of deleteBtn){
         }).then((result)=>{
             return result.json();
         }).then((data)=>{
-            alert(`data.msg`);
+            alert(`message deleted`);
             location.reload();
         })
         .catch((er)=>{

@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Cutive&family=Poppins:wght@700&display=swap');
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(254, 254, 254);
+}
+.center{
+    position: relative;
+    height: 450px;
+    width: 55%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 3px solid black;
+    overflow: hidden;
+}
+.images{
+    display: flex;
+    position: relative;
+    height: 100%;
+    width: 500%;
+    margin-left: 0%;
+    transition: 0.5s;
+}
+.images .slide{
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+}
+.images img{
+    height: 100%;
+    width: 100%;
+}
+.buttons{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    display: flex;
+}
+.buttons a{
+    height: 8px;
+    width: 30px;
+    border: 2px solid rgb(65, 63, 63);
+    border-radius: 10px;
+    margin: 10px;
+}
+.active{
+    background-color: rgb(125, 113, 248);
+    transition: 0.5s;
+    transform: scale(0.999);
+}
+/* tech stack */
+.techstack-container{
+    width: 60%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-family: 'Poppins',sans-serif;
+    margin-top: 20px;
+    border: 2px solid black;
+}
+.techstack-container h1{
+    margin: 20px;
+}
+.techstack-container span{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-right: 20px;
+}
+.techstack-container .language{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    justify-content: space-around;
+}
+.language img{
+    width: 110px;
+    height: 110px;
+    margin: 80px;
+    transition: all 1s;
+}
+.language img:hover{
+    width: 120px;
+    width: 120px;
+    margin: 50px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;;
+}
+.guide-container{
+    display: flex;
+    flex-direction: column;
+    border: 4px solid black;
+    width: 60%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.guide{
+    margin: 20px;
+    font-size: 1.1rem;
+}
+.guide li{
+    font-size: 1.14rem;
+    font-weight: 500;
+    
+}
+/* footer */
+
+footer{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+.container-footer{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.upper-part{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    justify-content: space-around;
+}
+.lower-part{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.about-section{
+    display: flex;
+    /* border: 2px solid black; */
+    flex-direction: column;
+    width: 30%;
+    margin-left: 40px;
+    justify-content: center;
+    height: 30%;
+}
+.about-section h5{
+    font-size: 2rem;
+    margin: 3px;
+}
+.about-section p{
+    margin: 3px;
+    color: white;
+}
+.link-section{
+    width: 20%;
+}
+.link-section h5{
+    font-size: 2rem;
+    margin: 3px;
+}
+.link-section p{
+    margin: 3px;
+    color: white;
+}
+footer a{
+    text-decoration: none;
+    color: rgb(4, 4, 4)
+}
+.link-section ul li{
+    margin: 6px;
+    font-size: 1.2rem;
+}
+.title-section{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+.title-section h2{
+    font-size: 4.2rem;
+    color: white;
+}
+.lower-part .page-links{
+    text-align: center;
+    list-style: none;
+    width: 30%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: center;
+}
+.page-links li{
+    margin: 6px;
+}
+.link-section ul{
+    list-style: none;
+}
+.links-list li a{
+    color: rgb(142, 141, 141);
+}
+#title-header h2 a{
+    color: rgb(177, 174, 174);
+}
+#title-header a:hover{
+    color: white;
+    
+}
+.links-list a:hover{
+    color: white;
+}
+#aboutMe,#services{
+    color: rgb(142, 141, 141);
+}
+#aboutMe:hover,#services:hover{
+    cursor: pointer;
+    color: white;
+}
+.text-center{
+    align-items: center;
+    text-align: center;
+    padding: auto;
+    padding-left: 10px;
+}

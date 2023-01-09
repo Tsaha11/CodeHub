@@ -30,6 +30,7 @@
             <a href="/login"><button>Login</button></a>
           </div>
         <%}else{%>
+          <label class="email"><%=user%></label>
           <div class="signup-login logout-btn">
             <form action="/logout" method="POST"><button>Logout</button></form>
           </div>
@@ -113,10 +114,7 @@
               <li><a href="/home">Home</a></li>
               <li><a href="/login">Login</a></li>
               <li><a href="/signup">Signup</a></li>
-              <li><a href="http://webenlance.com">About me</a></li>
-              <li><a href="http://webenlance.com">Documentation</a></li>
-              <li><a href="http://webenlance.com">Services</a></li>
-              <li><a href="http://webenlance.com">Next Project Teaser</a></li>
+              <li><a href="/documentation">Documentation</a></li>
             </ul>
           </div>
   

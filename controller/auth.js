@@ -67,6 +67,9 @@ const postLogin=async(req,res,next)=>{
             req.flash('error','Email does not exist');
             return res.render('login-signup/ejs/login',{title:'Login-Up',error:req.flash('error')})
         }
+        else{
+            req.session.user=user.username;
+        }
         const passCheck=await bcrypt.compare(password,user.password);
         if(passCheck==true){
             req.session.isLoggedIn=true;
@@ -75,6 +78,7 @@ const postLogin=async(req,res,next)=>{
         }
         else{
             req.flash('error','password not matched')
+            res.render('ejs/share',{title:'share',data:null,isLogin:req.session.isLoggedIn,user:req.session.user})
             res.redirect('/login');
         }
     }

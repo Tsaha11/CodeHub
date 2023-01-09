@@ -278,3 +278,10 @@ footer a{
 .links-list a:hover{
     color: white;
 }
+#aboutMe,#services{
+    color: rgb(142, 141, 141);
+}
+#aboutMe:hover,#services:hover{
+    cursor: pointer;
+    color: white;
+}

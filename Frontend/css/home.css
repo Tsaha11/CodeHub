@@ -221,6 +221,12 @@
     height: 42px;
     cursor: pointer;
 }
+.email{
+    font-size: 1rem;
+    position: absolute;
+    right: 60%;
+    top: 40%;
+}
 #leetcode-logo:hover{
     transform: all 3s;
     height: 42px;

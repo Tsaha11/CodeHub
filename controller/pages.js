@@ -8,7 +8,7 @@ const getHome=async(req,res,next)=>{
     try{
         const qoutes=await quote.find();
         if(qoutes!=null){
-            res.render('ejs/home',{title:'home',qoutes:qoutes,isLogin:req.session.isLoggedIn});
+            res.render('ejs/home',{title:'home',qoutes:qoutes,isLogin:req.session.isLoggedIn,email:req.session.email,user:req.session.user});
         }
     }
     catch(er){
@@ -18,10 +18,16 @@ const getHome=async(req,res,next)=>{
     }
 }
 const getCompiler=(req,res,next)=>{
-    res.render('ejs/compiler',{title:'compiler',isLogin:req.session.isLoggedIn});
+    res.render('ejs/compiler',{title:'compiler',isLogin:req.session.isLoggedIn,user:req.session.user});
 }
 const getShare=(req,res,next)=>{
-    res.render('ejs/share',{title:'share',data:null,isLogin:req.session.isLoggedIn})
+    res.render('ejs/share',{title:'share',data:null,isLogin:req.session.isLoggedIn,user:req.session.user})
+}
+const getNextProject=(req,res,next)=>{
+    res.send(`
+        <h1>Next Project<h1>
+        <p>Stack Overflow</p>
+    `)
 }
 const getPractice=async(req,res,next)=>{
     try{
@@ -78,18 +84,46 @@ const getLogout=(req,res,next)=>{
 }
 const getInbox=async(req,res,next)=>{
     const user=await User.findOne({email:req.session.email});
-    res.render('ejs/share',{title:'share',data:user.array,isLogin:req.session.isLoggedIn})
+    try{
+        res.render('ejs/share',{title:'share',data:user.array,isLogin:req.session.isLoggedIn,user:req.session.user})
+    }
+    catch(er){
+        res.render('ejs/share',{title:'share',data:null,isLogin:req.session.isLoggedIn,user:req.session.user})
+    }
 }
 const postDone=(req,res,next)=>{
     const id=req.body.id;
+    const ans=req.body.mode;
     User.findOne({email:req.session.email}).then((data)=>{
-        if(data.done.includes(id)==false){
-            data.done.push(id);
-            data.done.sort();
+        if(ans=="hard"){
+            if(data.doneHard.includes(id)==false){
+                data.doneHard.push(id);
+                data.doneHard.sort();
+            }
+        }
+        else if(ans=="medium"){
+            if(data.doneMedium.includes(id)==false){
+                data.doneMedium.push(id);
+                data.doneMedium.sort();
+            }
+        }
+        else{
+            if(data.doneEasy.includes(id)==false){
+                data.doneEasy.push(id);
+                data.doneEasy.sort();
+            }
         }
         return data.save();
     }).then((data)=>{
-        res.json({seen:data.done});
+        if(ans=="easy"){
+            res.json({seen:data.doneEasy});
+        }
+        else if(ans=="medium"){
+            res.json({seen:data.doneMedium});
+        }
+        else{
+            res.json({seen:data.doneHard});
+        }
     }).catch((er)=>{
         res.json({msg:'error occured'});
     })
@@ -99,6 +133,7 @@ const postMail=async(req,res,next)=>{
     try{
         const user1=await User.findOne({email:req.session.email});
         const user2=await User.findOne({username:username});
+        console.log(user1,user2);
     if(!user1 || !user2 || (user1.array.length>=5 && user2.array.length>=5)){
         res.json({msg:'Failed : possible reasons Full mail inbox or invalid username'});
     }
@@ -133,13 +168,12 @@ const postMail=async(req,res,next)=>{
     }
     }catch(er){
         console.log(er);
-
     }
 }
 const getSeen=async(req,res,next)=>{
     try{
         const user=await User.findOne({email:req.session.email});
-        res.json({seen:user.done});
+        res.json({seenEasy:user.doneEasy,seenMedium:user.doneMedium,seenHard:user.doneHard});
     }
     catch(er){
         res.json({msg:'error from server side'});
@@ -167,4 +201,7 @@ const postInboxDelete=async(req,res,next)=>{
         res.json({msg:'error from server side'});
     }
 }
-module.exports={getHome,getCompiler,getShare,getPractice,getEasyProblem,getMediumProblem,getHardProblem,getLogout,getInbox,postDone,postMail,getSeen,postInboxDelete};
+const getDocumentation=(req,res,next)=>{
+    res.render('ejs/documentation',{title:'documentation'});
+}
+module.exports={getHome,getCompiler,getShare,getPractice,getEasyProblem,getMediumProblem,getHardProblem,getLogout,getInbox,postDone,postMail,getSeen,postInboxDelete,getDocumentation,getNextProject};

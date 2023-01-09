@@ -6,6 +6,11 @@ const copyBtn=document.getElementById('copyBtn');
 const input=document.getElementById('field-input');
 const output=document.getElementById('field-output');
 const savingBtn=document.querySelector('#saving button');
+const closeBtn=document.getElementsByClassName('close-btn')[0];
+closeBtn.addEventListener('click',(er)=>{
+    const val=document.querySelector('.contents');
+    val.classList.remove('popclass');
+})
 resetBtn.addEventListener('click',(er)=>{
     codeEditor.value='';
 })

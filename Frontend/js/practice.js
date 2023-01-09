@@ -14,15 +14,33 @@ const progressBar=()=>{
     const percent=progress.firstElementChild;
     progress.style.background=`conic-gradient(#6c18da ${(count/20)*360}deg,#ededed 0deg)`;
     percent.innerHTML=`${(count/20)*100}%`;
-
 }
 const addGreen=()=>{
+    var mode;
+    const url=window.location.href;
+    if(url.includes('medium')==true){
+        mode="medium";
+    }
+    else if(url.includes('hard')==true){
+        mode="hard";
+    }
+    else{
+        mode="easy";
+    }
     fetch('http://localhost:3000/practice/seen',{
         method:'GET'
     }).then((data)=>{
         return data.json();
     }).then((data)=>{
-        addGreenBorder(data.seen);
+        if(mode=="easy"){
+            addGreenBorder(data.seenEasy)
+        }
+        else if(mode=="medium"){
+            addGreenBorder(data.seenMedium);
+        }
+        else{
+            addGreenBorder(data.seenHard);
+        }
     }).catch((er)=>{
         console.log(er);
     })
@@ -35,8 +53,12 @@ const addGreenBorder=(seen)=>{
     for(const q of question){
         const icon=q.lastElementChild.firstElementChild.firstElementChild;
         const id=icon.id;
-        if(seen.includes(id)==true){
-            q.id='tick-green'
+        if(seen){
+            for(var i=0;i<seen.length;i++){
+                if(seen[i]==id){
+                    q.id='tick-green';
+                }
+            }
         }
     }
     progressBar();
@@ -45,18 +67,38 @@ const addGreenBorder=(seen)=>{
 for(const btn of doneBtn){
     btn.addEventListener('click',(er)=>{
         const id=er.target.id;
-        fetch('http://localhost:3000/share/done',{
+        var mode;
+        const url=window.location.href;
+        if(url.includes('medium')==true){
+            mode="medium";
+        }
+        else if(url.includes('hard')==true){
+            mode="hard";
+        }
+        else{
+            mode="easy";
+        }
+        fetch(`http://localhost:3000/share/done`,{
             method:'POST',
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                id:id
+                id:id,
+                mode:mode
             })
         }).then((data)=>{
             return data.json();
         }).then(result=>{
-            addGreenBorder(result.seen);
+            if(mode=="easy"){
+                addGreenBorder(result.seen);
+            }
+            else if(mode=="hard"){
+                addGreenBorder(result.seen);
+            }
+            else{
+                addGreenBorder(result.seen);
+            }
         }).catch((er)=>{
             console.log(er);
             alert('error from server side');
