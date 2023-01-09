@@ -27,7 +27,7 @@ const addGreen=()=>{
     else{
         mode="easy";
     }
-    fetch('/practice/seen',{
+    fetch('http://localhost:3000/practice/seen',{
         method:'GET'
     }).then((data)=>{
         return data.json();
@@ -78,7 +78,7 @@ for(const btn of doneBtn){
         else{
             mode="easy";
         }
-        fetch(`/share/done`,{
+        fetch(`http://localhost:3000/share/done`,{
             method:'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -114,7 +114,7 @@ for(const div of codingDiv){
 
 logoutBtn.addEventListener('click',(er)=>{
     const child=er.target;
-    fetch('/logout',{
+    fetch('http://localhost:3000/logout',{
         method:'POST',
     }).then(result=>{
         console.log(result)
