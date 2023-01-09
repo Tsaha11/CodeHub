@@ -21,10 +21,9 @@ const store=new mongodbstore({
 const bcrypt=require('bcrypt');
 const cors=require('cors');
 const { MongoDBStore } = require('connect-mongodb-session');
-const { ppid } = require('process');
 app.use(cors());
-const privateKey=fs.readFileSync("server.key");
-const certificate=fs.readFileSync("server.cert");
+// const privateKey=fs.readFileSync("server.key");
+// const certificate=fs.readFileSync("server.cert");
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(express.static('./Frontend'));
@@ -47,7 +46,8 @@ app.use(helmet());
 app.use(compression());
 app.use(morgan('combined',{stream:accessLog}));
 mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@atlascluster.2a2wt0x.mongodb.net/Project1`).then((result) => {
-    https.createServer({key:privateKey,cert:certificate},app).listen(PORT);
+    // https.createServer({key:privateKey,cert:certificate},app).listen(PORT);
+    app.listen(PORT);
 }).catch((err) => {
     console.log('Error in connection');
     console.log(err);
