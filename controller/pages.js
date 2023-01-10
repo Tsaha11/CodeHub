@@ -32,7 +32,7 @@ const getPractice=async(req,res,next)=>{
     try{
         const data=await Easy.find().skip(0).limit(20);
         if(data!=null){
-            res.render('ejs/practice',{title:'home',data:data,isLogin:req.session.isLoggedIn,seen:data.seen});
+            res.render('ejs/practice',{title:'practice',data:data,isLogin:req.session.isLoggedIn,seen:data.seen});
         }
     }
     catch(er){
