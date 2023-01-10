@@ -75,8 +75,7 @@ const postLogin=async(req,res,next)=>{
             res.redirect('/');
         }
         else{
-            req.flash('error','password not matched')
-            res.render('ejs/share',{title:'share',data:null,isLogin:req.session.isLoggedIn,user:req.session.user})
+            req.flash('error','password not matched');
             res.redirect('/login');
         }
     }
